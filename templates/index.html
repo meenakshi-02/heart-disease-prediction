@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="main" lang="en">
+<head>
+       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Heart Disease Prediction</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+      
+.main{
+  background: url(https://www.itl.cat/pngfile/big/26-260898_green-nature-wallpaper-hd-1080p.jpg) no-repeat center fixed; 
+  background-size: cover;
+}
+header{
+  border: 1px solid black;
+  margin: 25px 50px 75px 100px;
+  color: rgb(128, 204, 51);
+  background: linear-gradient(to right, yellow,green);
+  border: black;
+}
+h1,form,h2{
+      text-align: center;
+      color: black;
+}
+select,input{
+       padding: 10px 20px;
+       border-radius: 15px;
+  color: black;
+  border-color: transparent;
+ }
+ button{
+      padding: 15px 45px;
+      background-color:#ffff00;
+  color: black;
+  border-radius: 30px;
+  border-color: transparent;
+  font-size: 20px;
+
+ }
+ button:hover {
+  padding: 20px 50px;
+  transition-duration:0.3s;
+}
+</style>
+<body>
+	<header>
+		<h1>HEART DISEASE PREDICTION<h1>
+	</header>
+	
+	<form action="{{ url_for('predict')}}" method="post">
+		<h2>Age ( 29 - 62 )</h2><input name="age" required="required">
+		<br><br>
+            <h2>Sex</h2>
+            <select name="sex" required="required">
+                <option value=0>Female</option>
+                <option value=1>Male</option>
+            </select>
+            <br><br>
+            <h2>Chest pain type</h2>
+            <select name="cp" required="required">
+                <option value=0>Typical angina</option>
+                <option value=1>Atypical angina</option>
+                <option value=2>Non-anginal pain</option>
+                <option value=3>Asymptomatic</option>
+            </select>   
+            <br><br>
+            <h2>Resting blood pressure in mm/Hg</h2><input name="trestbps" required="required">
+            <br><br>
+            <h2>Serum cholestoral in mg/dl</h2><input name="chol" required="required">
+            <br><br>
+            <h2>Fasting blood sugar > 120 mg/dl</h2>
+            <select name="fbs" required="required">
+                <option value=1>True</option>
+                <option value=0>False</option>
+            </select>
+            <br><br>
+            <h2>Resting electrocardiographic results</h2>
+            <select name="restecg" required="required">
+                <option value=0>Normal</option>
+                <option value=1>Having ST-T</option>
+                <option value=2>Hypertrophy</option>
+            </select>
+            <br><br>
+            <h2>Maximum heart rate achieved</h2><input name="thalach" required="required">
+            <br><br>
+            <h2>Exercise induced angina</h2>
+            <select name="exang" required="required">
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select>
+            <br><br>
+            <h2>oldpeak = ST depression induced by exercise relative to rest</h2><input name="oldpeak" required="required">
+            <br><br>
+            <h2>the slope of the peak exercise ST segment</h2>
+            <select name="slope" required="required">
+                <option value=0>Upsloping</option>
+                <option value=1>Flat</option>
+                <option value=2>Downsloping</option>
+            </select>
+            <br><br>
+            <h2>Number of major vessels (0-3) colored by flourosopy</h2>
+            <select name="ca" required="required">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+            </select>
+            <br><br>
+            <h2>Thalassemia</h2>
+            <select name="thal" required="required">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select>
+            <br><br>
+            <br><br><button id="sub" type="submit">Predict</button>
+            <br><br>
+
+	</form>
+      <br><br><h2>{{ text }}<h2><br><br>
+</body>
+</html>
